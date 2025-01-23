@@ -3,16 +3,18 @@ const text = document.getElementById("text");
 
 const addLi = (ev) => {
   const newLi = document.createElement("li");
-  newLi.innerText = text.value;
-  newLi.addEventListener("click", (ev) => {
-    newLi.classList.toggle("barra");
-  });
-  const btnDelete = document.createElement("button");
-  btnDelete.innerText = "❌";
-  btnDelete.addEventListener("click", (ev) => {
-    ul.removeChild(newLi);
-  });
-  newLi.appendChild(btnDelete);
-  ul.appendChild(newLi);
-  text.value = "";
+  if (text.value !== "") {
+    newLi.innerText = text.value;
+    newLi.addEventListener("click", (ev) => {
+      newLi.classList.toggle("barra");
+    });
+    const btnDelete = document.createElement("button");
+    btnDelete.innerText = "❌";
+    btnDelete.addEventListener("click", (ev) => {
+      ul.removeChild(newLi);
+    });
+    newLi.appendChild(btnDelete);
+    ul.appendChild(newLi);
+    text.value = "";
+  }
 };
